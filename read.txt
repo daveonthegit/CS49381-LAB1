@@ -1,1 +1,74 @@
-Use the covertxt files as the embedfile and the coverfiles.
+stego commands
+
+Steghide instructions for img and wav
+
+steghide embed  -cf nyc-skyline.jpg -ef cats-compressed.jpg -sf stegoimg_img.jpg -p 123
+steghide embed  -cf nyc-skyline.jpg -ef crickets_1.wav -sf stegoimg_sound.jpg -p123 steghide embed  -cf nyc-skyline.jpg -ef cover_longtext.txt -sf stegoimg_longtext.jpg -p 123
+steghide embed  -cf nyc-skyline.jpg -ef cover_shorttext.txt -sf stegoimg_shorttext.jpg -p 123 
+steghide embed  -cf cover_sound.wav -ef cats-compressed.jpg -sf stegosound_img.wav -p 123
+steghide embed  -cf cover_sound.wav -ef crickets_1.wav -sf stegosound_sound.wav -p 123 steghide embed  -cf cover_sound.wav -ef cover_longtext.txt -sf stegosound_longtext.wav -p 123
+steghide embed  -cf cover_sound.wav -ef cover_shorttext.txt -sf stegosound_shorttext.wav -p 123
+
+Extracting the steghide files 
+steghide extract -sf stegoimg_img.jpg -xf extracted_stegoimg_img.jpg -v -p 123
+steghide extract -sf stegoimg_longtext.jpg -xf extracted_stegoimg_longtext.txt -v -p 123
+steghide extract -sf stegoimg_shorttext.jpg -xf extracted_stegoimg_shorttext.txt -v -p 123
+steghide extract -sf stegoimg_sound.jpg -xf extracted_stegoimg_sound.wav -v -p 123
+
+steghide extract -sf stegosound_img.wav -xf extracted_stegosound_img.jpg -v -p 123
+steghide extract -sf stegosound_longtext.wav -xf extracted_stegosound_longtext.txt -v -p 123
+steghide extract -sf stegosound_shorttext.wav -xf extracted_stegosound_shorttext.txt -v -p 123
+steghide extract -sf stegosound_sound.wav -xf extracted_stegosound_sound.wav -v -p 123
+
+
+base64 and stegsnow instructions for stegsnow for txt
+Installing base64 and stegsnow can be done with
+sudo apt update && sudo apt install stegsnow -y
+sudo apt update && sudo apt install coreutils -y
+
+Converting the jpg and wav into base64 
+
+base64 cats-compressed.jpg > cats-compressed.txt
+base64 crickets_1.wav > crickets_1.txt
+
+stegsnow -C -p 123 -m "$(cat cats-compressed.txt)" cover_longtext.txt stegolongtext_img.txt
+stegsnow -C -p 123 -m "$(cat crickets_1.txt)" cover_longtext.txt stegolongtext_sound.txt
+stegsnow -C -p 123 -m "$(cat cover_longtext.txt)" cover_longtext.txt stegolongtext_longtext.txt
+stegsnow -C -p 123 -m "$(cat cover_shorttext.txt)" cover_longtext.txt stegolongtext_shorttext.txt
+
+stegsnow -C -p 123 -m "$(cat cats-compressed.txt)" cover_shorttext.txt stegoshorttext_img.txt
+stegsnow -C -p 123 -m "$(cat crickets_1.txt)" cover_shorttext.txt stegoshorttext_sound.txt
+stegsnow -C -p 123 -m "$(cat cover_longtext.txt)" cover_shorttext.txt stegoshorttext_longtext.txt
+stegsnow -C -p 123 -m "$(cat cover_shorttext.txt)" cover_shorttext.txt stegoshorttext_shorttext.txt
+
+Verify your outputs now with ls -lh steg*
+ you should see  stegolongtext_img.txt
+stegolongtext_sound.txt
+stegolongtext_longtext.txt
+stegolongtext_shorttext.txt
+stegoshorttext_img.txt
+stegoshorttext_sound.txt
+stegoshorttext_longtext.txt
+stegoshorttext_shorttext.txt
+etc for the image and sound
+
+Now for extracting from the stegsnow files.
+stegsnow -C -p 123 -Q stegolongtext_img.txt > extracted_img_base64_long.txt
+stegsnow -C -p 123 -Q stegolongtext_sound.txt > extracted_sound_base64_long.txt
+stegsnow -C -p 123 -Q stegolongtext_longtext.txt > extracted_longtext_base64_long.txt
+stegsnow -C -p 123 -Q stegolongtext_shorttext.txt > extracted_shorttext_base64_long.txt
+
+stegsnow -C -p 123 -Q stegoshorttext_img.txt > extracted_img_base64_short.txt
+stegsnow -C -p 123 -Q stegoshorttext_sound.txt > extracted_sound_base64_short.txt
+stegsnow -C -p 123 -Q stegoshorttext_longtext.txt > extracted_longtext_base64_short.txt
+stegsnow -C -p 123 -Q stegoshorttext_shorttext.txt > extracted_shorttext_base64_short.txt
+
+The Image and soundfile must be decoded with base64 back into image and wav using
+
+base64 -d extracted_img_base64_long.txt > recovered_cats_long.jpg
+base64 -d extracted_sound_base64_long.txt > recovered_crickets_long.wav
+
+base64 -d extracted_img_base64_short.txt > recovered_cats_short.jpg
+base64 -d extracted_sound_base64_short.txt > recovered_crickets_short.wav
+
+
