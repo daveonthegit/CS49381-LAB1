@@ -1,0 +1,75 @@
+hunter493dpzn@xdc:~$ sudo ./covert_tcp -source 127.0.0.1 -server -file received-secret.txt
+Covert TCP 1.0 (c)1996 Craig H. Rowland (crowland@psionic.com)
+Not for commercial use without permission.
+Listening for data from IP: 127.0.0.1
+Listening for data bound for local port: Any Port
+Decoded Filename: received-secret.txt
+Decoding Type Is: IP packet ID
+
+Server Mode: Listening for data.
+
+Receiving Data: U
+Receiving Data: s
+Receiving Data: e
+Receiving Data:  
+Receiving Data: t
+Receiving Data: h
+Receiving Data: e
+Receiving Data:  
+Receiving Data: c
+Receiving Data: o
+Receiving Data: v
+Receiving Data: e
+Receiving Data: r
+Receiving Data: t
+Receiving Data: x
+Receiving Data: t
+Receiving Data:  
+Receiving Data: f
+Receiving Data: i
+Receiving Data: l
+Receiving Data: e
+Receiving Data: s
+Receiving Data:  
+Receiving Data: a
+Receiving Data: s
+Receiving Data:  
+Receiving Data: t
+Receiving Data: h
+Receiving Data: e
+Receiving Data:  
+Receiving Data: e
+Receiving Data: m
+Receiving Data: b
+Receiving Data: e
+Receiving Data: d
+Receiving Data: f
+Receiving Data: i
+Receiving Data: l
+Receiving Data: e
+Receiving Data:  
+Receiving Data: a
+Receiving Data: n
+Receiving Data: d
+Receiving Data:  
+Receiving Data: t
+Receiving Data: h
+Receiving Data: e
+Receiving Data:  
+Receiving Data: c
+Receiving Data: o
+Receiving Data: v
+Receiving Data: e
+Receiving Data: r
+Receiving Data: f
+Receiving Data: i
+Receiving Data: l
+Receiving Data: e
+Receiving Data: s
+Receiving Data: .
+^C
+hunter493dpzn@xdc:~$ ls
+__MACOSX          covert_tcp    lab-stego      received-secret.txt
+covert-data.pcap  covert_tcp.c  lab-stego.zip  secret.txt
+covert.tcp        files         pass.txt
+hunter493dpzn@xdc:~$ diff -c secret.txt received-secret.txt
