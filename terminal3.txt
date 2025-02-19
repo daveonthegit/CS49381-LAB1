@@ -1,0 +1,72 @@
+hunter493dpzn@xdc:~$ # su - hunter493dpzn
+hunter493dpzn@xdc:~$ sudo ./covert_tcp -source 127.0.0.1 -dest 127.0.0.1 -file secret.txt
+Covert TCP 1.0 (c)1996 Craig H. Rowland (crowland@psionic.com)
+Not for commercial use without permission.
+Destination Host: 127.0.0.1
+Source Host     : 127.0.0.1
+Originating Port: random
+Destination Port: 80
+Encoded Filename: secret.txt
+Encoding Type   : IP ID
+
+Client Mode: Sending data.
+
+Sending Data: U
+Sending Data: s
+Sending Data: e
+Sending Data:  
+Sending Data: t
+Sending Data: h
+Sending Data: e
+Sending Data:  
+Sending Data: c
+Sending Data: o
+Sending Data: v
+Sending Data: e
+Sending Data: r
+Sending Data: t
+Sending Data: x
+Sending Data: t
+Sending Data:  
+Sending Data: f
+Sending Data: i
+Sending Data: l
+Sending Data: e
+Sending Data: s
+Sending Data:  
+Sending Data: a
+Sending Data: s
+Sending Data:  
+Sending Data: t
+Sending Data: h
+Sending Data: e
+Sending Data:  
+Sending Data: e
+Sending Data: m
+Sending Data: b
+Sending Data: e
+Sending Data: d
+Sending Data: f
+Sending Data: i
+Sending Data: l
+Sending Data: e
+Sending Data:  
+Sending Data: a
+Sending Data: n
+Sending Data: d
+Sending Data:  
+Sending Data: t
+Sending Data: h
+Sending Data: e
+Sending Data:  
+Sending Data: c
+Sending Data: o
+Sending Data: v
+Sending Data: e
+Sending Data: r
+Sending Data: f
+Sending Data: i
+Sending Data: l
+Sending Data: e
+Sending Data: s
+Sending Data: .
